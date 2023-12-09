@@ -5,6 +5,7 @@ GREEN_THRESHOLD = 13
 BLUE_THRESHOLD = 14
 
 count = 0
+total = 0
 
 def check(list1, val):
     return(any(int(x) > val for x in list1))
@@ -21,9 +22,23 @@ for game in games:
     red = re.findall(r'\b(\d+)\s+red\b', set_strings)
     green = re.findall(r'\b(\d+)\s+green\b', set_strings)
 
-    if check(blue, BLUE_THRESHOLD) or check(red, RED_THRESHOLD) or check(green, GREEN_THRESHOLD):
-        continue
+    blue_max = max(list(map(int, blue)))
+    red_max = max(list(map(int, red)))
+    green_max = max(list(map(int, green)))
 
-    count += int(game_id[0])
+    power = blue_max * red_max * green_max
+
+    total += power
+
+    # Commented out for part 2
+    # if check(blue, BLUE_THRESHOLD) or check(red, RED_THRESHOLD) or check(green, GREEN_THRESHOLD):
+    #     continue
+
+    # count += int(game_id[0])
 print(count)
+print(total)
 
+# part 2:
+    # Select the highest value from each game
+    # power = Multiply them all together
+    # Sum all of the powers
