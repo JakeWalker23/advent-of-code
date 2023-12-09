@@ -25,16 +25,30 @@ count = 0
 with open('input.txt', 'r') as file_input:
     games = file_input.readlines()
 
-
 for game in games:
 
-    # split into sets
     game_id = game[5]
     set_strings = game[8:]
-    split_set_strings = set_strings.split(';')
+    
+    blue = re.findall(r'\b(\d+)\s+blue\b', set_strings)
+    red = re.findall(r'\b(\d+)\s+red\b', set_strings)
+    green = re.findall(r'\b(\d+)\s+green\b', set_strings)
 
-    for set in split_set_strings.split(','):
+    blue_false = []
+    green_false = []
+    red_false = []
 
-        #IF set values do not exceed configuration
-        print(set)
+    blue_false = [blue_color for blue_color in blue if int(blue_color) > BLUE_THRESHOLD]
+    red_false = [red_color for red_color in red if int(red_color) > RED_THRESHOLD]
+    green_false = [green_color for green_color in green if int(green_color) > GREEN_THRESHOLD]
 
+    print(blue_false)
+    print(red_false)
+    print(green_false)
+
+    if len(blue_false) > 0 or len(green_false) > 0 or len(red_false) > 0: 
+        break
+
+    count += int(game_id)
+
+print(count)
