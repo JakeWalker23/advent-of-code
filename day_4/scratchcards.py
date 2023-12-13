@@ -26,28 +26,21 @@ for line in scratchcards:
     int_winning_numbers = [int(number) for number in winning_numbers]
     int_my_numbers = [int(my_number) for my_number in my_numbers]
 
-    match = []
-    for number in int_my_numbers:
-        if number in int_winning_numbers:
-            match.append(number)
+    unique_winning_numbers = set(int_winning_numbers)
+    unique_my_numbers = set(int_my_numbers)
     
+    points_to_add = 0
+    matches = []
+    for number in unique_winning_numbers:
+        if number in unique_my_numbers:
+            matches.append(number)
+            
+            if len(matches) == 1:
+                points_to_add += 1
+                continue
+                
+            points_to_add *= 2
 
-    if len(match) == 1:
-        points += 1
-
-    # Over complicated. 
-    # Should take into account non unique my_numbers
-     
-    if len(match) > 1:
-        points += (int(len(match)) - 1) * 2
+    points += points_to_add
 
 print(points)
-
-
-
-
-
-    # return the length of my_numbers in winning_numbers
-        # Should be counted once unless its in twice
-    
-    # total += len(length of my_numbers in winning_numbers) * 2
