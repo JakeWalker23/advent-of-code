@@ -20,8 +20,8 @@ points = 0
 for line in scratchcards:
     scratchcard_numbers = line[10:].strip().split(' | ')
 
-    winning_numbers = re.findall(r'\d{2}', scratchcard_numbers[0])
-    my_numbers = re.findall(r'\d{2}', scratchcard_numbers[1])
+    winning_numbers = re.findall(r'\d+', scratchcard_numbers[0])
+    my_numbers = re.findall(r'\d+', scratchcard_numbers[1])
 
     int_winning_numbers = [int(number) for number in winning_numbers]
     int_my_numbers = [int(my_number) for my_number in my_numbers]
