@@ -10,6 +10,14 @@
 
 # Sum all of the points for all games
 
+
+# Part 2:
+
+# A matching number wins a copy of subsequent cards
+    # Card 1 -> Matches = 5 -> Wins you a copy of Card 2,3,4,5,6
+    # Card 2 -> Matches 
+
+
 import re
 
 with open('input.txt', 'r') as file_input:
@@ -18,16 +26,17 @@ with open('input.txt', 'r') as file_input:
 points = 0
 
 for line in scratchcards:
-    scratchcard_numbers = line[10:].strip().split(' | ')
+    # Can 'destructure' from the split
+    scratchcard_winning, scratchcard_my_numbers = line[10:].strip().split(' | ')
 
-    winning_numbers = re.findall(r'\d+', scratchcard_numbers[0])
-    my_numbers = re.findall(r'\d+', scratchcard_numbers[1])
+    winning_numbers_string = re.findall(r'\d+', scratchcard_winning)
+    my_numbers_string = re.findall(r'\d+', scratchcard_my_numbers)
 
-    int_winning_numbers = [int(number) for number in winning_numbers]
-    int_my_numbers = [int(my_number) for my_number in my_numbers]
+    winning_numbers = [int(number) for number in winning_numbers_string]
+    my_numbers = [int(my_number) for my_number in my_numbers_string]
 
-    unique_winning_numbers = set(int_winning_numbers)
-    unique_my_numbers = set(int_my_numbers)
+    unique_winning_numbers = set(winning_numbers)
+    unique_my_numbers = set(my_numbers)
     
     points_to_add = 0
     matches = []
