@@ -1,0 +1,20 @@
+PART 1
+
+- Holding down a button charges it up at 1 millimeter.
+
+- This time is subtracted from the time
+
+- The remaining time the boat travels at that speed
+
+- e.g. 10 second race, distance 15
+
+    - Hold button for 2 seconds
+    - Leaves 8 seconds to race at 2 millimeters per millisecond
+    - Boat travels 8 x 2 mmp/s 
+        - boat travels 16 mmp/s
+
+- If distance travelled > distance:
+    - its a potential winner
+
+
+- Multiply the amount of winning strategies per time.
