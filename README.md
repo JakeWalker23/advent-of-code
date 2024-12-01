@@ -1,19 +1,3 @@
-# advent_of_code
-2023 Advent of Code
+# Advent of code
+My solutions to advent of code
 
-
-
-
-Lets collaborate and compare solututions!
-
-Feedback welcome
-
-
-
-
-To Run (e.g):
-```
-docker build -t aoc .
-
-docker run aoc ./run_solution.sh day_1   
-```
