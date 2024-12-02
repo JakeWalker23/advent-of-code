@@ -24,7 +24,3 @@ for location in location_a:
         similarity_score += (location * location_b_count[location])
 
 print(similarity_score)
-
-
-# loop through location a
-
